@@ -1,0 +1,50 @@
+---
+// filepath: /Users/jordankeller/Github/jordan-keller-work-portfolio/src/components/Head.astro
+import '../styles/global.css';
+import { SITE_TITLE } from '../consts';
+import Nav from './Nav.astro';
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE_TITLE}
+  href={new URL('rss.xml', Astro.site)}
+/>
+<meta name="generator" content={Astro.generator} />
+
+<!-- Font preloads -->
+<link
+  rel="preload"
+  href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap"
+  as="style"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap"
+/>
+
+<link
+  rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+  as="style"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+/>
+
+<!-- Sticky Header -->
+<header
+  id="sticky-header"
+  class="fixed top-0 left-0 w-full bg-inherit text-gray-900 shadow transition-all duration-300 z-50"
+>
+  <Nav />
+</header>

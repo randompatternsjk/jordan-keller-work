@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('projects')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+{
+  posts.map((post) => (
+  <div class="m-4 block w-full">
+  <a href={`/projects/${post.id}/`} class="block w-full">
+    <!-- Row 1: Image -->
+    <img
+      class="object-cover w-full h-auto"
+      src={post.data.heroImage}
+      alt=""
+    />
+    <!-- Row 2: Title and Type -->
+    <div class="mt-4 flex justify-between items-center">
+      <h4 class="text-lg font-semibold">{post.data.title}</h4>
+      <span
+        class={`px-3 py-1 text-xs ${
+          post.data.type === 'Brand'
+            ? 'bg-blue-500 text-white'
+            : post.data.type === 'Music'
+              ? 'bg-green-500 text-white'
+              : post.data.type === 'Video'
+                ? 'bg-red-500 text-white'
+                : 'bg-dominoivory text-black'
+        }`}
+      >
+        {post.data.type}
+      </span>
+    </div>
+  </a>
+</div>
+    
+  ))
+}

@@ -1,0 +1,17 @@
+---
+// filepath: /Users/jordankeller/Github/jordan-keller-work-portfolio/src/components/Callout.astro
+const { left, right } = Astro.slots;
+---
+
+<div
+  class="flex flex-row lg:flex-row gap-8 w-6/10 mx-auto bg-dominoivory p-4 rounded-md"
+>
+  <div class="text-4xl md:text-7xl my-auto mx-auto font-head text-fadedblack">
+    <slot name="left" />
+  </div>
+  <div
+    class="text-2xl md:text-3xl my-auto mx-auto font-head text-fadedblack text-balance"
+  >
+    <slot name="right" />
+  </div>
+</div>

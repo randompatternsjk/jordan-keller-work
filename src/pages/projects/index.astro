@@ -1,0 +1,27 @@
+---
+import Head from '../../components/Head.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('projects');
+
+export async function getStaticPaths() {
+  const posts = await getCollection('projects');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+---
+
+<head>
+  <Head />
+</head>
+
+<body class="pt-50">
+  <section class="columns-3 w-9/10 mx-auto gap-12">
+    <ProjectCard />
+  </section>
+  <Footer />
+</body>

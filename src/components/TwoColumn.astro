@@ -1,0 +1,17 @@
+---
+export interface Props {
+  children: any;
+}
+
+const { children } = Astro.props;
+---
+
+<hr class="my-12" />
+<div class="flex flex-wrap gap-8 my-8">
+  <div class="basis-full md:basis-1/3">
+    <slot name="left" />
+  </div>
+  <div class="w-full prose">
+    <slot name="right" />
+  </div>
+</div>

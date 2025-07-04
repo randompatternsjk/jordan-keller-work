@@ -1,0 +1,118 @@
+---
+title: "Yep, There's a Groupon for That"
+duties: ['Content Direction', 'Video Production', 'Scriptwriting']
+heroImage: '/projects/yep/featured.webp'
+description: "A brand repositioning campaign to shift lapsed customer perception from 'Groupon doesn't have any good deals anymore' to 'Oh snap—ACTUALLY!'."
+type: 'Awareness Campaign'
+category: 'Brand'
+color: '#EE013B'
+pubDate: '2022-08-01'
+---
+import TwoColumn from '../../components/TwoColumn.astro';
+import ThreeUp from '../../components/ThreeUp.astro';
+import GetToBy from '../../components/GetToBy.astro';
+export const { media, production } = frontmatter;
+import Callout from '../../components/Callout.astro';
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+<TwoColumn>
+  <div slot="left">
+    <eyebrow>Research</eyebrow>
+    <h3>"Groupon ... still exists?"</h3>
+  </div>
+  <div slot="right" class="prose">
+ Turns out years of blasting 5 spray-and-pray promo emails a day* and driving customers to an increasingly enshittified website and outmoded app _did_ build a certain kind of brand recognition
+
+ *Groupon... kinda sucks?*
+
+<Callout>
+  <div slot="left">73%</div>
+  <div slot="right">of lapsed customers responded Groupon no longer has good or locally relevant deals</div>
+</Callout>
+</div>
+</TwoColumn>
+
+<TwoColumn>
+  <div slot="left">
+    <eyebrow>Strategy</eyebrow>
+    <h3>Reposition Groupon as an app for every day and exceptional experiences</h3>
+  </div>
+
+  <div slot="right" class="lg:col-span-1 text-dominoivory">
+    <div class="border-l-3 border-dominoivory/30 border-dotted space-y-2 lg:space-y-4">
+      <ThreeUp>
+        <div slot="left" class="flex flex-col ml-4">
+          <eyebrow class="basis-full">Sales</eyebrow>
+          <h6 class="uppercase">More Better Deals</h6>
+          Increase merchant quality and quantity in five test markets
+        </div>
+        <div slot="center" class="flex flex-col ml-4">
+          <eyebrow class="basis-full">Product</eyebrow>
+          <h6 class="uppercase">Fix Search</h6>
+         Overhaul search functionality to serve deals with hyperlocal relevance
+        </div>
+        <div slot="right" class="flex flex-col p-4">
+          <eyebrow class="basis-full">Brand Creative</eyebrow>
+          <h6 class="uppercase">Inject Vibes</h6>
+          Shift brand perception among lapsed and new customers
+        </div>
+      </ThreeUp>
+    </div>
+  </div>
+</TwoColumn>
+
+<GetToBy>
+  <div slot="get">
+    New and lapsed Groupon customers in five test markets
+  </div>
+  <div slot="to">
+    Shift their perception of Groupon from “busted coupon app” to “discovery portal for amazing and everyday experiences”
+  </div>
+  <div slot="by">
+  Building an integrated marketing campaign that crackles with confidence and enthusiasm
+  </div>
+</GetToBy>
+
+<hr />
+
+{/* <div className="mx-auto w-full">
+<FromTo
+  color="#EE013B"
+  fromImage={media.fromImage}
+  toImage={media.toImage}
+  production={production}
+  fromCaption="Groupon: the Stonehenge of apps. An ancient portal to adventures so aggressively fine and discounts so mathematically whelming that the only repeat customers are archaeologists desperate to figure out: 'Did people actually like this? Or were they just bored?' -Philomena, lapsed Groupon customer"
+  toCaption="Wow! Groupon has great deals now!... Wait, what’s Groupon again? Oh right—DEALS! Amazing deals! Like, so good!... Uh… What was I saying? Oh yeah! GROUPON! YAY!'* - Dory, New Groupon Groupie"
+/>
+</div> */}
+
+# Production
+
+<h3 class="my-12">CTV Ads</h3>
+<div className="flex-col p-4">
+<YouTube id="IybvT99kWNQ" class="mx-auto my-4" />
+<YouTube id="j5sU4-25HiY" class="mx-auto my-4" />
+<YouTube id="CSQZBkwHG_s" class="mx-auto my-4" />
+<YouTube id="WKHlTHSs3sU" class="mx-auto my-4" />
+</div>
+
+<div class="flex flex-col p-4 text-shadow-lg mt-8">
+<h1>Campaign Results</h1>
+
+<div class="w-full flex flex-col lg:flex-row flex-wrap gap-4 p-4 text-center mx-auto flex-cols-3">
+  <div class="w-full lg:w-1/3 flex-1">
+    #### +46%
+    ##### Ad Recall
+  </div>
+
+  <div class="w-full lg:w-1/3 flex-1">
+    #### +16% 
+    ##### Purchase Intent
+  </div>
+
+  <div class="w-full lg:w-1/3 flex-1">
+    #### +6%
+    ##### Brand Consideration
+  </div>
+</div>
+</div>

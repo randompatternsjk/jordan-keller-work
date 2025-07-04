@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-desc: 'Inter', 'GT Pressure Mono', 'sans-serif';
+  --font-head: 'League Gothic', 'Oswald', 'sans-serif';
+  --color-fadedblack: #100b0f;
+  --color-dominoivory: #e5ddcb;
+  --animate-fade-in-scale: fade-in-scale 0.2s ease-out;
+
+  @keyframes fade-in-scale {
+    0% {
+      opacity: 0;
+      transform: scale(0.98);
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+  }
+}
+@layer base {
+  html {
+    font-size: 14px;
+  }
+  body {
+    @apply text-dominoivory bg-fadedblack animate-fade-in-scale mx-auto my-auto w-full;
+  }
+  h1 {
+    @apply text-6xl text-dominoivory font-bold;
+  }
+  h2 {
+    @apply text-5xl text-dominoivory font-bold;
+  }
+  h3 {
+    @apply text-4xl text-dominoivory font-bold;
+  }
+  h4 {
+    @apply text-3xl text-dominoivory font-bold;
+  }
+  h5 {
+    @apply text-2xl text-dominoivory font-bold;
+  }
+  h6 {
+    @apply text-xl text-dominoivory font-bold;
+  }
+  p {
+    @apply font-desc text-base/6 text-dominoivory;
+  }
+  eyebrow {
+    @apply font-desc text-dominoivory/50 uppercase text-sm tracking-widest;
+  }
+  ol {
+    @apply text-dominoivory font-desc;
+  }
+  ul {
+    @apply text-dominoivory font-desc;
+  }
+  li {
+    @apply text-dominoivory text-base/3 text-xs font-desc;
+  }
+  em {
+    @apply text-dominoivory font-desc;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply no-underline inline-block bg-lime-100 font-desc font-bold uppercase px-4 py-2 rounded-full w-1/3 text-center text-fadedblack hover:bg-lime-200 transition duration-300 ease-in-out;
+  }
+}
+
+/* Optionally, you can remove the button styles from @layer base if it makes sense */

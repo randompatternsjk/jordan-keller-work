@@ -1,0 +1,50 @@
+---
+import Head from '../components/Head.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<head>
+  <Head />
+</head>
+
+<body class="w-screen mx-auto">
+  <div class="h-full place-content-center mx-auto pt-40">
+    <img
+      id="hero-image"
+      src="/hero/hero-image.jpg"
+      alt="Jordan Keller: Huge Dweeb"
+      class="w-full lg:w-3/5 mx-auto mask-b-from-80% mask-radial-[50%_50%] mask-radial-from-80% object-contain"
+    />
+  </div>
+
+  <div id="hero-text" class="mx-auto flex-1 p-12">
+    <div
+      class="flex-1 mx-auto grid grid-rows-1 grid-cols-2 items-center justify-center gap-4 text-left"
+    >
+      <h1 class="font-head text-5xl leading-none uppercase text-right">
+        Jordan
+        <br /> Keller
+      </h1>
+      <h2 class="font-head text-3xl leading-none uppercase">
+        Writer
+        <br />
+        Producer
+        <br />
+        Director
+      </h2>
+    </div>
+  </div>
+  <footer class="w-full h-auto">
+    <Footer />
+  </footer>
+
+  <!-- <div
+    class="w-[18vw] translate-x-[37vw] -translate-y-[10vw] rotate-30 transform object-contain"
+  >
+    <img
+      id="huge-creative-dweeb"
+      src="/hero/huge-creative-dweeb.png"
+      alt="Huge Creative Dweeb"
+    />
+  </div> -->
+</body>

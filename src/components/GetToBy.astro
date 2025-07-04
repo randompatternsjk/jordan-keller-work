@@ -1,0 +1,21 @@
+---
+// filepath: /Users/jordankeller/Github/jordan-keller-work-portfolio/src/components/GetToBy.astro
+const { get, to, by } = Astro.slots;
+---
+
+<div class="flex flex-wrap gap-4 mb-12">
+  <div class="w-full lg:flex-1 text-sm p-4">
+    <p class="text-2xl font-bold text-dominoivory uppercase">Get</p>
+    <slot name="get" />
+  </div>
+
+  <div class="w-full lg:flex-1 text-sm p-4">
+    <p class="text-2xl font-bold text-dominoivory uppercase">To</p>
+    <slot name="to" />
+  </div>
+
+  <div class="w-full lg:flex-1 text-sm p-4">
+    <p class="text-2xl font-bold text-dominoivory uppercase">By</p>
+    <slot name="by" />
+  </div>
+</div>

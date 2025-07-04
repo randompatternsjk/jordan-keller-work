@@ -1,0 +1,88 @@
+---
+// src/components/Gallery.astro
+export interface Props {
+  images?: Array<{ src: string; alt: string }>;
+}
+
+const { images = [] } = Astro.props;
+---
+
+<div
+  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 my-8"
+  id="gallery-container"
+>
+  {
+    images.map((image, index) => (
+      <button
+        onclick={`document.dispatchEvent(new CustomEvent('showLightbox', { detail: ${JSON.stringify(image)} }))`}
+        class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer p-0 border-none bg-transparent"
+        aria-label={`View ${image.alt} in lightbox`}
+      >
+        <img
+          src={image.src}
+          alt={image.alt}
+          class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+      </button>
+    ))
+  }
+</div>
+
+<!-- Lightbox Modal -->
+<div
+  id="lightbox"
+  class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4"
+>
+  <div class="relative max-w-4xl w-full">
+    <button
+      onclick="document.getElementById('lightbox').classList.add('hidden')"
+      class="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300"
+      aria-label="Close lightbox"
+    >
+      &times;
+    </button>
+    <img
+      id="lightbox-image"
+      class="w-full max-h-[90vh] object-contain"
+      src=""
+      alt=""
+    />
+    <p id="lightbox-caption" class="text-white text-center mt-2"></p>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('showLightbox', (event) => {
+    const { src, alt } = event.detail;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const caption = document.getElementById('lightbox-caption');
+
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    caption.textContent = alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  });
+
+  // Close when clicking outside image
+  document.getElementById('lightbox')?.addEventListener('click', (e) => {
+    if (e.target === document.getElementById('lightbox')) {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (
+      e.key === 'Escape' &&
+      !document.getElementById('lightbox').classList.contains('hidden')
+    ) {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+</script>
