@@ -1,20 +1,78 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Project from '../../layouts/Project.astro';
-import { render } from 'astro:content';
+import Head from '../../components/Head.astro';
+import ProjectHeader from '../../components/ProjectHeader.astro';
+
+// Generate paths for all projects
 export async function getStaticPaths() {
-  const posts = await getCollection('projects');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: post,
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
   }));
 }
-type Props = CollectionEntry<'projects'>;
 
-const post = Astro.props;
-const { Content } = await render(post);
+// Get current project from props
+const { project } = Astro.props;
+const { Content } = await render(project); // Renders MDX content
 ---
 
-<Project {...post.data}>
-  <Content />
-</Project>
+<Head />
+
+<body class="w-9/10 max-w-7xl mx-auto bg-fadedblack text-dominoivory mt-40 p-4">
+  <article>
+    <!-- Render Featured Video or Hero Image -->
+    {
+      project.data.featuredVideo ? (
+        <div class="w-full aspect-video lg:h-[600px] md:h-[500px] sm:h-[300px]">
+          <iframe
+            src={project.data.featuredVideo}
+            class="w-full h-full"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+      ) : (
+        project.data.heroImage && (
+          <img
+            src={project.data.heroImage}
+            alt={project.data.title}
+            class="w-full h-auto mb-4"
+          />
+        )
+      )
+    }
+
+    <Project title={project.data.title} />
+
+    <ProjectHeader>
+      <div slot="title">
+        <eyebrow>{project.data.type}</eyebrow>
+        <h1 class="text-balance">{project.data.title}</h1>
+      </div>
+      <div
+        slot="description"
+        class="prose text-dominoivory flex h-full items-center text-balance"
+      >
+        {project.data.description}
+      </div>
+      <div slot="duties">
+        <p class="text- uppercase font-bold transform">Duties</p>
+        <div
+          class="ml-2 grid grid-cols-2 md:grid-cols-1 gap-2 text-xs text-dominoivory"
+        >
+          {
+            project.data.duties?.map((duty) => <div>{duty}</div>) ?? (
+              <div> &nbsp; </div>
+            )
+          }
+        </div>
+      </div>
+    </ProjectHeader>
+
+    <Content />
+    <!-- Rendered MDX content goes here -->
+  </article>
+</body>

@@ -1,40 +1,33 @@
 ---
-import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
-const posts = (await getCollection('projects')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+// Define props using Astro's generated types
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+const { project } = Astro.props;
 ---
 
-{
-  posts.map((post) => (
-  <div class="m-4 block w-full">
-  <a href={`/projects/${post.id}/`} class="block w-full">
-    <!-- Row 1: Image -->
-    <img
-      class="object-cover w-full h-auto"
-      src={post.data.heroImage}
-      alt=""
-    />
-    <!-- Row 2: Title and Type -->
-    <div class="mt-4 flex justify-between items-center">
-      <h4 class="text-lg font-semibold">{post.data.title}</h4>
-      <span
-        class={`px-3 py-1 text-xs ${
-          post.data.type === 'Brand'
-            ? 'bg-blue-500 text-white'
-            : post.data.type === 'Music'
-              ? 'bg-green-500 text-white'
-              : post.data.type === 'Video'
-                ? 'bg-red-500 text-white'
-                : 'bg-dominoivory text-black'
-        }`}
+<article class="project-card mx-4 mb-16 block break-inside-avoid">
+  <a href={`/projects/${project.slug}`}>
+    {
+      project.data.heroImage && (
+        <img
+          src={project.data.heroImage}
+          alt={project.data.title}
+          class="w-full h-auto mb-4"
+        />
+      )
+    }
+    <div class="p-1">
+      <p
+        class="text-xs uppercase font-bold font-desc text-dominoivory/50 tracking-widest my-0"
       >
-        {post.data.type}
-      </span>
+        {project.data.type}
+      </p>
+      <p class="font-bold text-lg">{project.data.title}</p>
+
+      <p class="mb-8 text-xs text-justify">{project.data.description}</p>
     </div>
   </a>
-</div>
-    
-  ))
-}
+</article>
