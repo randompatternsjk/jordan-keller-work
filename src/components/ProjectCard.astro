@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-
+import '../styles/global.css';
 // Define props using Astro's generated types
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -8,7 +8,7 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="project-card mx-4 mb-16 block break-inside-avoid">
+<div class="mx-4 mb-8 block break-inside-avoid">
   <a href={`/projects/${project.slug}`}>
     {
       project.data.heroImage && (
@@ -25,9 +25,11 @@ const { project } = Astro.props;
       >
         {project.data.type}
       </p>
-      <p class="font-bold text-lg">{project.data.title}</p>
+      <p class="font-bold font-desc text-xl">{project.data.title}</p>
 
-      <p class="mb-8 text-xs text-justify">{project.data.description}</p>
+      <p class="mb-8 text-xs font-desc text-justify">
+        {project.data.description}
+      </p>
     </div>
   </a>
-</article>
+</div>

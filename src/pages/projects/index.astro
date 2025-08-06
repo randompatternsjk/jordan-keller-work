@@ -3,22 +3,22 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 import Head from '../../components/Head.astro';
 import '../../styles/global.css';
-import Footer from '../../components/Footer.astro';
-// Fetch all projects, sorted by date (newest first)
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
 const projects = (await getCollection('projects')).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 ---
 
-<html>
-  <head>
-    <Head />
-    <title>Jordan Keller | Projects</title>
-  </head>
+<head>
+  <Head />
+  <title>Jordan Keller | Projects</title>
+</head>
 
-  <body class="max-w-9/10 mx-auto bg-fadedblack text-dominoivory mt-40 p-2">
-    <div class="columns-1 md:columns-2 lg:columns-3 w-9/10 mx-auto items-start">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </body>
-</html>
+<BaseLayout>
+  <div
+    class="columns-1 md:columns-2 lg:columns-3 max-w-[95vw] mx-auto items-start animate-fade-in-scale"
+  >
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</BaseLayout>

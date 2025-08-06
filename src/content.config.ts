@@ -7,6 +7,7 @@ const projects = defineCollection({
     pubDate: z.coerce.date(),
     heroImage: z.string().optional(),
     featuredVideo: z.string().optional(),
+    featuredVideoThumb: z.string().optional(),
     type: z.string().optional(),
     category: z.string().optional(),
     duties: z.array(z.string()).default([]), // Instead of .optional()

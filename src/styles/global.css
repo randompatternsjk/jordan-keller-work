@@ -6,12 +6,12 @@
   --font-head: 'League Gothic', 'Oswald', 'sans-serif';
   --color-fadedblack: #100b0f;
   --color-dominoivory: #e5ddcb;
-  --animate-fade-in-scale: fade-in-scale 0.2s ease-out;
+  --animate-fade-in-scale: fade-in-scale 1.2s ease-out;
 
   @keyframes fade-in-scale {
     0% {
       opacity: 0;
-      transform: scale(0.98);
+      transform: scale(0.95);
       filter: blur(10px);
     }
     100% {
@@ -26,7 +26,7 @@
     font-size: 14px;
   }
   body {
-    @apply text-dominoivory bg-fadedblack animate-fade-in-scale mx-auto my-auto w-full;
+    @apply text-dominoivory bg-fadedblack mx-auto my-auto w-full;
   }
   h1 {
     @apply text-6xl text-dominoivory font-bold;
