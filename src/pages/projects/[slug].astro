@@ -32,7 +32,7 @@ const { Content } = await render(project); // Renders MDX content
           poster={
             project.data.featuredVideoThumb || '/path/to/default-thumbnail.jpg'
           }
-          class="w-full aspect-video border-2 border-dominoivory"
+          class="w-auto aspect-video border-2 border-dominoivory"
         />
       ) : (
         project.data.heroImage && (

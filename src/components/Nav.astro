@@ -3,15 +3,30 @@
 ---
 
 <div
-  class="bg-fadedblack font-head uppercase my-4 flex flex-row w-screen p-8 items-center"
+  class="bg-fadedblack font-head uppercase my-4 flex flex-row sm:flex-row w-screen p-8 items-center"
 >
-  <div class="font-head text-dominoivory md:text-4xl text-3xl flex-grow">
-    <a href=" ">Jordan Keller</a>
-  </div>
-  <div class="text-dominoivory text-2xl flex-grow text-right space-x-8">
-    <a href="/projects">Good Work</a>
-    <!-- <a href="/about">About</a> -->
-  </div>
+  <span class="w-1/2 flex-row">
+    <!-- First column/row -->
+    <div class="font-head text-dominoivory md:text-5xl text-3xl w-1/2">
+      <div>
+        <a href="/">
+          Jordan Keller
+          <div class="font-head text-dominoivory md:text-1xl text-sm">
+            Writer + Producer + Director
+          </div>
+        </a>
+      </div>
+    </div>
+  </span>
+  <span class="w-1/2 flex-row text-right">
+    <!-- Second column/row -->
+    <div
+      class="text-dominoivory h-auto text-xl text-right flex flex-row items-end justify-end gap-4"
+    >
+      <a href="/projects" class="hover:underline">Good Work</a>
+      <!-- <a href="/about" class="hover:underline">Hello</a>-->
+    </div>
+  </span>
   <!-- <div class="social-links">
       <a href="https://m.webtoo.ls/@astro" target="_blank">
         <span class="sr-only">Follow Astro on Mastodon</span>

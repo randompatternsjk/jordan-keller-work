@@ -4,46 +4,63 @@ import Footer from '../components/Footer.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<head>
-  <Head />
-</head>
+<html transition:animate="fade">
+  <head>
+    <Head />
+  </head>
 
-<BaseLayout>
-  <body class="w-screen mx-auto">
-    <div class="h-full place-content-center mx-auto pt-40">
-      <img
-        id="hero-image"
-        src="/hero/hero-image.jpg"
-        alt="Jordan Keller: Huge Dweeb"
-        class="w-full lg:w-3/5 mx-auto mask-b-from-80% mask-radial-[50%_50%] mask-radial-from-80% object-contain"
-      />
+  <BaseLayout>
+    <div class="flex h-full place-content-center mx-auto mt-40 mb-40">
+      <div class="flex-1">
+        <img
+          id="hero-image"
+          src="/hero/hero-image.jpg"
+          alt="Jordan Keller: Writer, Producer, Director"
+          class="max-h-[50vh] lg:w-[60vw] mx-auto mask-b-from-80% mask-radial-[50%_50%] mask-radial-from-80% object-contain"
+        />
+      </div>
+
+      <div></div>
     </div>
 
-    <div id="hero-text" class="mx-auto flex-1 p-12">
+    <div
+      class="flex-1 text-center text-2xl md:text-3xl lg:text-4xl font-head text-dominoivory"
+    >
       <div
-        class="flex-1 mx-auto grid grid-rows-1 grid-cols-2 items-center justify-center gap-4 text-left"
+        class="flex mx-auto grid grid-rows-1 md:grid-cols-4 lg:grid-cols-4 items-center justify-center gap-4 text-center w-full"
       >
-        <h1 class="font-head text-5xl leading-none uppercase text-right">
-          Jordan
-          <br /> Keller
-        </h1>
-        <h2 class="font-head text-3xl leading-none uppercase">
-          Writer
-          <br />
-          Producer
-          <br />
-          Director
-        </h2>
+        <img
+          id="metopio-logo"
+          src="/svgs/metopio.svg"
+          alt="Metopio"
+          class="w-30 w-40 mx-auto lg:my-12"
+        />
+        <img
+          id="university-of-chicago-logo"
+          src="/svgs/uchicago.svg"
+          alt="University of Chicago"
+          class="w-30 lg:w-40 mx-auto lg:my-12"
+        />
+        <img
+          id="climate-logo"
+          src="/projects/climate/climate-logo.webp"
+          alt="Climate"
+          class="w-30 lg:w-40 mx-auto lg:my-12"
+        />
+        <img
+          id="groupon-logo"
+          src="/svgs/groupon-logo.svg"
+          alt="Groupon"
+          class="w-30 lg:w-40 mx-auto lg:my-12"
+        />
       </div>
     </div>
-  </body>
 
-  <footer class="w-full h-auto">
-    <Footer />
-  </footer>
-</BaseLayout>
+    <footer class="w-full h-auto">
+      <Footer />
+    </footer>
 
-<!-- <div
+    <!-- <div
     class="w-[18vw] translate-x-[37vw] -translate-y-[10vw] rotate-30 transform object-contain"
   >
     <img
@@ -52,3 +69,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       alt="Huge Creative Dweeb"
     />
   </div> -->
+  </BaseLayout>
+</html>
